@@ -24,6 +24,11 @@ class Instructor extends People {
   grade(student, subject) {
     console.log(`${student.name} receives a perfect score on ${subject}.`);
   }
+  applyGrade(student) {
+    let randomNumber = Math.random();
+    student.grade += randomNumber + student.grade;
+    console.log(`${student.name}'s new grade is ${student.grade}.`)
+  }
 }
 
 class Student extends People {
@@ -32,6 +37,7 @@ class Student extends People {
     this.previousBackground = Attrs.previousBackground;
     this.className = Attrs.className;
     this.favSubjects = Attrs.favSubjects;
+    this.grade = Attrs.grade;
   }
 
   listsSubject() {
@@ -85,7 +91,8 @@ const albert = new Student({
   catchPhrase: 'To Infinity and Beyond',
   previousBackground: 'Student, and math tutor',
   className: 'FSW24',
-  favSubjects: ['CSS', 'JS', 'React']
+  favSubjects: ['CSS', 'JS', 'React'],
+  grade: 75,
 })
 const buzz = new Student({
   name: 'Buzz',
@@ -96,7 +103,8 @@ const buzz = new Student({
   catchPhrase: 'To Infinity and Beyond',
   previousBackground: 'Astronaut',
   className: 'DS6',
-  favSubjects: ['Python', 'Nanocomputing']
+  favSubjects: ['Python', 'Nanocomputing'],
+  grade: 65,
 })
 const steve = new TeamLead({
   name: 'Steve',
@@ -149,6 +157,9 @@ rico.grade(buzz, 'CSS');
 rico.standUp('WEB PT 9 FRI');
 rico.dubugsConsole(buzz, 'CSS');
 
+// Stretch
+pace.applyGrade(buzz);
+rico.applyGrade(albert);
 
 
 
